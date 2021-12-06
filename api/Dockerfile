@@ -1,0 +1,18 @@
+FROM node:latest
+WORKDIR /usr/src/nodejs
+
+COPY package*.json ./
+RUN npm install
+COPY . .
+
+ENV PORT=80
+ENV HOST=0.0.0.0
+ENV MONGO_URI=mongodb://10.0.3.126:27017/redes2-db
+ENV AWS_SECRET_ACCESS_KEY=BJXcai56y3PnbuU+Y+WqcJT5AZPfEgy0B4G7cTic
+ENV AWS_ACCESS_KEY_ID=AKIA4EQ6FFGCH6EUJFV4
+ENV AWS_DEFAULT_REGION=us-east-2
+ENV AWS_BUCKET_NAME=redes2p2-bucket
+
+EXPOSE 80
+
+CMD ["node", "index.js"]
